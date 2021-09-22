@@ -1,0 +1,2 @@
+# StructuredQRCodeReader
+複雑なQRCodeを読むためのライブラリ
