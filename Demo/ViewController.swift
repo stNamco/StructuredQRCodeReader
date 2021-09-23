@@ -7,6 +7,7 @@
 
 import UIKit
 import StructuredQRCodeReader
+import SwiftUI
 
 class ViewController: UIViewController {
 
@@ -28,6 +29,7 @@ class ViewController: UIViewController {
     }
     
     @objc func tapButton() {
-        print("aa")
+        let vc = UIHostingController(rootView: ContentView())
+        present(vc, animated: true, completion: nil)
     }
 }
