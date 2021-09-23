@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  StructuredQRCodeReaderContentView.swift
 //  StructuredQRCodeReader
 //
 //  Created by kazuhiro nanko on 2021/09/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct ContentView: View {
+public struct StructuredQRCodeReaderContentView: View {
     @ObservedObject var viewModel = ScannerViewModel()
     
     public init() {}
@@ -34,8 +34,8 @@ public struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct StructuredQRCodeReaderContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        StructuredQRCodeReaderContentView()
     }
 }

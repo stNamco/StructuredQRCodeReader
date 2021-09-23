@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     }
     
     @objc func tapButton() {
-        let vc = UIHostingController(rootView: ContentView())
+        let vc = UIHostingController(rootView: StructuredQRCodeReaderContentView())
         present(vc, animated: true, completion: nil)
     }
 }
