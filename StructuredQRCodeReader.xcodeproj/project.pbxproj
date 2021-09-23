@@ -22,7 +22,7 @@
 		ECA57FED26FBFA7F00888E9B /* ScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA57FEC26FBFA7F00888E9B /* ScannerViewModel.swift */; };
 		ECA57FF126FBFAAA00888E9B /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA57FF026FBFAAA00888E9B /* CameraPreview.swift */; };
 		ECA57FF526FBFAD600888E9B /* QrCodeCameraDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA57FF426FBFAD600888E9B /* QrCodeCameraDelegate.swift */; };
-		ECA57FF926FBFE9600888E9B /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA57FF826FBFE9600888E9B /* SecondView.swift */; };
+		ECA57FF926FBFE9600888E9B /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA57FF826FBFE9600888E9B /* ScannerView.swift */; };
 		ECA57FFF26FBFEB800888E9B /* QrCodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA57FFE26FBFEB800888E9B /* QrCodeScannerView.swift */; };
 		ECA5800326FBFEDE00888E9B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA5800226FBFEDE00888E9B /* ContentView.swift */; };
 /* End PBXBuildFile section */
@@ -77,7 +77,7 @@
 		ECA57FEC26FBFA7F00888E9B /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
 		ECA57FF026FBFAAA00888E9B /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 		ECA57FF426FBFAD600888E9B /* QrCodeCameraDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeCameraDelegate.swift; sourceTree = "<group>"; };
-		ECA57FF826FBFE9600888E9B /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
+		ECA57FF826FBFE9600888E9B /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 		ECA57FFE26FBFEB800888E9B /* QrCodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeScannerView.swift; sourceTree = "<group>"; };
 		ECA5800226FBFEDE00888E9B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +112,7 @@
 		ECA57F9826FB54D500888E9B = {
 			isa = PBXGroup;
 			children = (
+				ECA5802E26FC703400888E9B /* SupportingFiles */,
 				ECA57FA426FB54D500888E9B /* StructuredQRCodeReader */,
 				ECA57FAF26FB54D500888E9B /* StructuredQRCodeReaderTests */,
 				ECA57FC526FB552300888E9B /* Demo */,
@@ -138,10 +139,9 @@
 				ECA57FEC26FBFA7F00888E9B /* ScannerViewModel.swift */,
 				ECA57FF026FBFAAA00888E9B /* CameraPreview.swift */,
 				ECA57FF426FBFAD600888E9B /* QrCodeCameraDelegate.swift */,
-				ECA57FF826FBFE9600888E9B /* SecondView.swift */,
+				ECA57FF826FBFE9600888E9B /* ScannerView.swift */,
 				ECA57FFE26FBFEB800888E9B /* QrCodeScannerView.swift */,
 				ECA5800226FBFEDE00888E9B /* ContentView.swift */,
-				ECA57FA626FB54D500888E9B /* Info.plist */,
 			);
 			path = StructuredQRCodeReader;
 			sourceTree = "<group>";
@@ -174,6 +174,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ECA5802E26FC703400888E9B /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				ECA57FA626FB54D500888E9B /* Info.plist */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,7 +332,7 @@
 				ECA57FED26FBFA7F00888E9B /* ScannerViewModel.swift in Sources */,
 				ECA57FFF26FBFEB800888E9B /* QrCodeScannerView.swift in Sources */,
 				ECA57FF526FBFAD600888E9B /* QrCodeCameraDelegate.swift in Sources */,
-				ECA57FF926FBFE9600888E9B /* SecondView.swift in Sources */,
+				ECA57FF926FBFE9600888E9B /* ScannerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,7 +521,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = StructuredQRCodeReader/Info.plist;
+				INFOPLIST_FILE = SupportingFiles/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -539,7 +547,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = StructuredQRCodeReader/Info.plist;
+				INFOPLIST_FILE = SupportingFiles/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
