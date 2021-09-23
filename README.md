@@ -1,2 +1,2 @@
 # [WIP]StructuredQRCodeReader
-複雑なQRCodeを読むための
+複雑なQRCodeを読むためのPlayground
