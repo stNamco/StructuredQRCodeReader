@@ -7,6 +7,7 @@
 
 import UIKit
 import StructuredQRCodeReader
+import SwiftUI
 
 class ViewController: UIViewController {
 
@@ -15,6 +16,20 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         main()
+        
+        configure()
+    }
+    
+    func configure() {
+        let button = UIButton(frame: .init(x: 100, y: 100, width: 150, height: 50))
+        button.setTitle("カメラ起動", for: .normal)
+        button.backgroundColor = .blue
+        button.addTarget(self, action: #selector(tapButton), for: .touchUpInside)
+        view.addSubview(button)
+    }
+    
+    @objc func tapButton() {
+        let vc = UIHostingController(rootView: ContentView())
+        present(vc, animated: true, completion: nil)
     }
 }
-
