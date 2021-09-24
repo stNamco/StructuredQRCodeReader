@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "StructuredQRCodeReader"
-  spec.version      = "0.0.4"
+  spec.version      = "0.0.5"
   spec.summary      = "A short description of StructuredQRCodeReader."
 
   # This description is used to generate tags and improve search results.
@@ -63,7 +63,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.platform     = :ios
-  spec.platform     = :ios, "14.0"
+  spec.platform     = :ios, "10.0"
 
   #  When using multiple platforms
   # spec.ios.deployment_target = "5.0"
@@ -90,14 +90,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.source_files  = [
-    "StructuredQRCodeReader/main.swift", 
-    "StructuredQRCodeReader/ScannerViewModel.swift",
-    "StructuredQRCodeReader/ScannerView.swift",
-    "StructuredQRCodeReader/QrCodeCameraDelegate.swift",
-    "StructuredQRCodeReader/CameraPreview.swift",
-    "StructuredQRCodeReader/QrCodeScannerView.swift",
-    "StructuredQRCodeReader/StructuredQRCodeReaderContentView.swift",
-    "StructuredQRCodeReader/StructuredQRCodeReader.h",
+    "StructuredQRCodeReader/**/*"
   ]
   # spec.exclude_files = "Classes/Exclude"
 
