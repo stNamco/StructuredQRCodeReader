@@ -15,7 +15,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        main()
         
         configure()
     }
@@ -29,7 +28,8 @@ class ViewController: UIViewController {
     }
     
     @objc func tapButton() {
-        let vc = UIHostingController(rootView: ContentView())
+        let vc = QRCodeReaderViewController()
         present(vc, animated: true, completion: nil)
     }
 }
+
