@@ -23,10 +23,6 @@ class CameraPreview: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    @objc func onClick(){
-        delegate?.onSimulateScanning()
-    }
-
     override func layoutSubviews() {
         super.layoutSubviews()
         previewLayer?.frame = self.bounds

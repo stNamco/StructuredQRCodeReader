@@ -10,36 +10,33 @@ import UIKit
 
 class QrCodeScannerView: UIView {
 
+    weak var delegate: AVCaptureMetadataOutputObjectsDelegate? {
+        didSet {
+            metadataOutput.setMetadataObjectsDelegate(delegate, queue: DispatchQueue.main)
+        }
+    }
     var supportedBarcodeTypes: [AVMetadataObject.ObjectType] = [.qr]
-    typealias UIViewType = CameraPreview
 
     private let session = AVCaptureSession()
-    private let delegate = QrCodeCameraDelegate()
     private let metadataOutput = AVCaptureMetadataOutput()
+    private lazy var cameraView = CameraPreview(session: session, frame: frame)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        let cameraView = CameraPreview(session: session, frame: frame)
-        checkCameraAuthorizationStatus(cameraView)
-        addSubview(cameraView)
+        configure()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func interval(delay: Double) -> QrCodeScannerView {
-        delegate.scanInterval = delay
-        return self
+    private func configure() {
+        checkCameraAuthorizationStatus(cameraView)
+        addSubview(cameraView)
     }
-
-    func found(r: @escaping (String) -> Void) -> QrCodeScannerView {
-        delegate.onResult = r
-        return self
-    }
-
-    func setupCamera(_ uiView: CameraPreview) {
+    
+    private func setupCamera(_ uiView: CameraPreview) {
         if let backCamera = AVCaptureDevice.default(for: AVMediaType.video) {
             if let input = try? AVCaptureDeviceInput(device: backCamera) {
                 session.sessionPreset = .photo
@@ -51,7 +48,6 @@ class QrCodeScannerView: UIView {
                     session.addOutput(metadataOutput)
 
                     metadataOutput.metadataObjectTypes = supportedBarcodeTypes
-                    metadataOutput.setMetadataObjectsDelegate(delegate, queue: DispatchQueue.main)
                 }
                 let previewLayer = AVCaptureVideoPreviewLayer(session: session)
 
@@ -59,15 +55,16 @@ class QrCodeScannerView: UIView {
                 previewLayer.videoGravity = .resizeAspectFill
                 uiView.layer.addSublayer(previewLayer)
                 uiView.previewLayer = previewLayer
-
-                session.startRunning()
             }
         }
-
+    }
+    
+    func startSession() {
+        session.startRunning()
     }
 
-    static func dismantleUIView(_ uiView: CameraPreview, coordinator: ()) {
-        uiView.session.stopRunning()
+    func stopSession() {
+        session.stopRunning()
     }
 
     private func checkCameraAuthorizationStatus(_ uiView: CameraPreview) {

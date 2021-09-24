@@ -18,11 +18,11 @@
 		ECA57FD326FB552400888E9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECA57FD126FB552400888E9B /* LaunchScreen.storyboard */; };
 		ECA57FE126FB565E00888E9B /* StructuredQRCodeReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA57FA226FB54D500888E9B /* StructuredQRCodeReader.framework */; };
 		ECA57FE226FB565E00888E9B /* StructuredQRCodeReader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ECA57FA226FB54D500888E9B /* StructuredQRCodeReader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		ECA57FED26FBFA7F00888E9B /* ScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA57FEC26FBFA7F00888E9B /* ScannerViewModel.swift */; };
 		ECA57FF126FBFAAA00888E9B /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA57FF026FBFAAA00888E9B /* CameraPreview.swift */; };
-		ECA57FF526FBFAD600888E9B /* QrCodeCameraDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA57FF426FBFAD600888E9B /* QrCodeCameraDelegate.swift */; };
 		ECA57FFF26FBFEB800888E9B /* QrCodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA57FFE26FBFEB800888E9B /* QrCodeScannerView.swift */; };
 		ECAE44E426FDE6DD006B706F /* QRCodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAE44E326FDE6DD006B706F /* QRCodeReaderViewController.swift */; };
+		ECAE44EE26FE07BD006B706F /* QRCodeReaderSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAE44ED26FE07BD006B706F /* QRCodeReaderSetting.swift */; };
+		ECAE44F426FE0887006B706F /* QRCodeParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAE44F326FE0887006B706F /* QRCodeParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,11 +71,11 @@
 		ECA57FCF26FB552400888E9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECA57FD226FB552400888E9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECA57FD426FB552400888E9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ECA57FEC26FBFA7F00888E9B /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
 		ECA57FF026FBFAAA00888E9B /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
-		ECA57FF426FBFAD600888E9B /* QrCodeCameraDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeCameraDelegate.swift; sourceTree = "<group>"; };
 		ECA57FFE26FBFEB800888E9B /* QrCodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeScannerView.swift; sourceTree = "<group>"; };
 		ECAE44E326FDE6DD006B706F /* QRCodeReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeReaderViewController.swift; sourceTree = "<group>"; };
+		ECAE44ED26FE07BD006B706F /* QRCodeReaderSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeReaderSetting.swift; sourceTree = "<group>"; };
+		ECAE44F326FE0887006B706F /* QRCodeParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,11 +131,11 @@
 			isa = PBXGroup;
 			children = (
 				ECA57FA526FB54D500888E9B /* StructuredQRCodeReader.h */,
-				ECA57FEC26FBFA7F00888E9B /* ScannerViewModel.swift */,
 				ECA57FF026FBFAAA00888E9B /* CameraPreview.swift */,
-				ECA57FF426FBFAD600888E9B /* QrCodeCameraDelegate.swift */,
 				ECA57FFE26FBFEB800888E9B /* QrCodeScannerView.swift */,
 				ECAE44E326FDE6DD006B706F /* QRCodeReaderViewController.swift */,
+				ECAE44ED26FE07BD006B706F /* QRCodeReaderSetting.swift */,
+				ECAE44F326FE0887006B706F /* QRCodeParser.swift */,
 			);
 			path = StructuredQRCodeReader;
 			sourceTree = "<group>";
@@ -320,11 +320,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECAE44EE26FE07BD006B706F /* QRCodeReaderSetting.swift in Sources */,
 				ECA57FF126FBFAAA00888E9B /* CameraPreview.swift in Sources */,
-				ECA57FED26FBFA7F00888E9B /* ScannerViewModel.swift in Sources */,
 				ECAE44E426FDE6DD006B706F /* QRCodeReaderViewController.swift in Sources */,
 				ECA57FFF26FBFEB800888E9B /* QrCodeScannerView.swift in Sources */,
-				ECA57FF526FBFAD600888E9B /* QrCodeCameraDelegate.swift in Sources */,
+				ECAE44F426FE0887006B706F /* QRCodeParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,10 +7,25 @@
 
 import UIKit
 import Foundation
+import AVFoundation
+
+public protocol QrCodeCameraDelegate: class {
+    // TODO:
+    func readDate(_ dataString: String)
+}
 
 public class QRCodeReaderViewController: UIViewController {
+        
+    private lazy var scannerView = QrCodeScannerView(frame: view.bounds)
     
-    var viewModel : ScannerViewModel = .init()
+    public weak var delegate: QrCodeCameraDelegate?
+    private(set) var isScanning: Bool = false
+    
+    public var setting: QRCodeReaderSetting = .init() {
+        didSet {
+            scannerView.startSession()
+        }
+    }
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,21 +37,42 @@ public class QRCodeReaderViewController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        viewModel.isShowing = true
+        isScanning = true
+        scannerView.startSession()
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        viewModel.isShowing = false
+        scannerView.stopSession()
+        isScanning = false
     }
     
-    func configure() {
+    private func configure() {
         view.backgroundColor = .white
         
-        let v = QrCodeScannerView(frame: view.bounds)
-            .found(r: viewModel.onFoundQrCode)
-            .interval(delay: viewModel.scanInterval)
-        view.addSubview(v)
+        scannerView.delegate = self
+        view.addSubview(scannerView)
+    }
+    
+    private func foundBarcode(_ stringValue: String) {
+        let now = Date()
+        if now.timeIntervalSince(setting.lastTime) >= setting.scanInterval {
+            setting.lastTime = now
+            delegate?.readDate(stringValue)
+        }
+    }
+}
+
+// MARK: - AVCaptureMetadataOutputObjectsDelegate
+
+extension QRCodeReaderViewController: AVCaptureMetadataOutputObjectsDelegate {
+    public func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+                
+        guard let dataString = QRCodeParser.parse(metadataObjects: metadataObjects) else {
+            return
+        }
+        
+        foundBarcode(dataString)
     }
 }
