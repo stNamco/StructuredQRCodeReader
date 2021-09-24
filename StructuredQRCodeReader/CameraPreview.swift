@@ -10,14 +10,12 @@ import AVFoundation
 
 class CameraPreview: UIView {
 
-    private var label:UILabel?
-
     var previewLayer: AVCaptureVideoPreviewLayer?
     var session = AVCaptureSession()
     weak var delegate: QrCodeCameraDelegate?
 
-    init(session: AVCaptureSession) {
-        super.init(frame: .zero)
+    init(session: AVCaptureSession, frame: CGRect) {
+        super.init(frame: frame)
         self.session = session
     }
 
